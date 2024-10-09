@@ -1,5 +1,7 @@
 # Perfect Fit SEG 👗👕
 
+Quick Site Link: https://seg-perfect-fit.github.io/perfect-fit-site/
+
 **Perfect Fit SEG** is an innovative clothing app that lets you:
 
 - 🧍 Create a personalized avatar
