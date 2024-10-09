@@ -10,6 +10,8 @@
 
 Our goal is to revolutionize the shopping experience by delivering an engaging, immersive platform with a **clean** and **elegant design**.
 
+**NOTE**: This is just the website showcasing a mock version of the product, and is NOT the final product itself
+
 ---
 
 ## Key Features ✨
@@ -24,8 +26,5 @@ Our goal is to revolutionize the shopping experience by delivering an engaging, 
 ## Tech Stack 💻 (WIP)
 
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js, Express
-- **Database:** MongoDB
-- **Mobile:** React Native
 
 ---
