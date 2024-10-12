@@ -1,1 +1,1 @@
-
+consile.log("javascript sucks")
