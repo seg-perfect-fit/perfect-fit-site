@@ -1,0 +1,67 @@
+html {
+    font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-weight: normal;
+}
+
+#main {
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+    border: 10px solid red;
+    border-radius: 20px;
+}
+
+#nav-top {
+    /* We don't need a color for this, it was just to show the area of the border */
+    /* border: 1px solid red; */
+    border: 1px solid rgba(0, 0, 0, 0);
+
+    /* Applies 10px margin to ALL sides */
+    margin: 10px;
+
+}
+
+#nav {
+    /* border: 10px solid red; */
+    border-radius: 10px;
+    margin-top: 5px;
+    background-color: rgba(13, 110, 253, 0.85);
+
+}
+
+#nav-logo {
+    border-radius: 10px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#nav-toggler {
+    margin-right: 10px;
+}
+
+.inside {
+    border-radius: 10px;
+    display: inline-block;
+
+    /* NOTE: 1rem = 16px (the html font size) */
+    width: 50%;
+    height: 31.25rem; 
+
+    vertical-align: top;
+}
+
+.inside-left{
+    background-color: lightcoral;
+}
+
+.inside-right{
+    background-color: lightblue;
+}
