@@ -26,6 +26,7 @@ OTHER PAGES
 - mock_app page (mock_app.html): Have a mock version of our app (complete this if we have time)
 - profile page (profile.html): sign_in page leads to this, shows a basic profile (tbd)
 - scrolling_clothes page (transition.html): Temporary page that will be combined with the product part of the index page. Developing a sideways scrolling function to browse through different clothes
+- frequently asked questions page (FAQs.html): Shows frequently asked questions
 
 ---
 
