@@ -1,7 +1,24 @@
+SEG 2900 Groupe 9 repo
+_______________________________
+Team name: 
+TUSNOJ Industries
+Members:
+
+
+* Taha Rashid 300403833
+* Ugbad Arwo 300416933
+* Souren Savari 300446627
+* Nahla Bouchanane 300449313
+* Othmane El Moutaouakkil
+* Jaffer Nasrallah
+________________________________
+Product name: PerfectFit
+
 # Perfect Fit SEG 👗👕
 
 Quick Site Link: https://seg-perfect-fit.github.io/perfect-fit-site/
-
+________________________________
+Description: 
 **Perfect Fit SEG** is an innovative clothing app that lets you:
 
 - 🧍 Create a personalized avatar
@@ -11,7 +28,7 @@ Quick Site Link: https://seg-perfect-fit.github.io/perfect-fit-site/
 - 👚 Build and customize your own outfits
 
 Our goal is to revolutionize the shopping experience by delivering an engaging, immersive platform with a **clean** and **elegant design**.
-
+________________________________
 **NOTE**: This is just the website showcasing a mock version of the product, and is NOT the final product itself
 
 **Rough Organization of Our Site**
