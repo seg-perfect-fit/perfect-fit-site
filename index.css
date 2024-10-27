@@ -96,6 +96,12 @@ h2 {
 }
 
 /* interactivity in the slogan (left) box */
+#div-interactive {
+    display: flex;
+    flex-direction: column;
+    border-color: rgba(0,0,0,0) !important;
+}
+
 #button-interactive {
     /* make color dark blue */
     color: #ff7043;
@@ -108,7 +114,6 @@ h2 {
     /* making the border */
     border: 2px solid #01579b;
     border-radius: 10px;
-
 
     /* transitions */
     transition: color 150ms ease-in;
@@ -300,6 +305,11 @@ h2 {
     #below-avatar {
         display: block;
         text-align: center;
+    }
+
+    /* move the interactive button and sign-in link to the bottom of the div */
+    #div-interactive {
+        margin-top: 45px;
     }
 }
 
