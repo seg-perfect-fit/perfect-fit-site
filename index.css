@@ -49,11 +49,89 @@ h2 {
 }
 
 .inside-left{
-    background-color: lightcoral;
+    background-color: #65c0f5;
+    /* width: 20%; */
 }
 
 .inside-right{
-    background-color: lightblue;
+    background-color: #ffa726;
+}
+
+/* image stuff */
+.inside-right img {
+    display: block;
+    /* centers the image */
+    margin-left: auto; 
+    margin-right: auto;
+
+    /* allows it to retain its aspect ratio while staying within the div */
+    width: auto;
+    height: 100%;
+
+    /* making it pretty */
+    border: 10px solid red;
+    border-radius: 10px;
+ }
+ 
+ #below-avatar {
+    display: none;
+ }
+
+#slogan {
+    font-weight: 1000;
+    color: white;
+    font-size: 60px;
+}
+
+#slogan-inner {
+    text-decoration: none;
+    text-decoration-color: underline 20px rgba(0, 0, 0, 0);
+    transition: color 300ms ease-in-out;
+}
+
+.slogan-you-visible {
+    /* text-decoration: underline !important;
+    text-decoration-color: underline 20px white !important; */
+    color: #ff7043;
+}
+
+/* interactivity in the slogan (left) box */
+#button-interactive {
+    /* make color dark blue */
+    color: #ff7043;
+    font-weight: 1000;
+
+    width: 100%;
+
+    /* make a clear background */
+    background-color: #01579b;
+    /* making the border */
+    border: 2px solid #01579b;
+    border-radius: 10px;
+
+
+    /* transitions */
+    transition: color 150ms ease-in;
+}
+
+#text-interactive {
+    text-align: center;
+}
+
+#link-interactive {
+    color: #01579b;
+
+    /* transitions */
+    transition: color 150ms ease-in;
+}
+
+/* on hover transitions for interactives */
+#button-interactive:hover {
+    color: white;
+}
+
+#link-interactive:hover {
+    color: #ff7043;
 }
 
 /* NAV bar stuff */
@@ -69,6 +147,10 @@ h2 {
 
 .navbar-nav a {
     color: white;
+}
+
+.nav-link:hover {
+    color: #ffa726 !important;
 }
 
 #nav {
@@ -101,6 +183,23 @@ h2 {
     padding-left: 5px;
 }
 
+/* main text */
+#main-text {
+    display: flex;
+
+    /* adjusting the size of our div */
+    margin: auto;
+    /* takes up 80% of screen */
+    width: 80%;
+}
+
+#main-text div {
+    background-color: green;
+    border-radius: 50px;
+    /* each div takes 50% of avaliable space */
+    width: 50%;
+}
+
 /* Classes to hide/show items */
 .fade-in {
     /* hides the item */
@@ -112,3 +211,95 @@ h2 {
     /* makes the item visible */
     opacity: 1;
 }
+
+
+/* Dynamic website styling */
+
+/* XLg */
+
+/* Lg */
+
+/* from 860px + to (max value) */
+/* Med2 */
+@media (width) and (width > 860px) {
+    #slogan {
+        font-size: 80px;
+        /* border: solid 200px blue; */
+    }
+
+    .inside {
+        width: auto;
+    }
+
+    /* the avatar side */
+    .inside-left {
+        width: 60%;
+    }
+    
+    /* the slogan side */
+    .inside-right {
+        width: 40%;
+    }
+}
+/* from 750px+ to 860px */
+/* Med1 */
+@media (width <= 860px) and (width > 750px) {
+    #slogan {
+        font-size: 70px;
+        /* border: solid 200px blue; */
+    }
+    
+    .inside {
+        width: auto;
+    }
+
+    /* the avatar side */
+    .inside-left {
+        width: 60%;
+    }
+    
+    /* the slogan side */
+    .inside-right {
+        width: 40%;
+    }
+}
+
+/* from 600px + to 750px */
+/* Small */
+@media (width <= 750px ) and (width > 600px) {
+    /* just use default values */
+}
+
+/* from (min value) to 600px */
+/* XSmall */
+@media (width <= 600px) {
+#slogan {
+        font-size: 50px;
+        /* border: solid 200px blue; */
+    }
+    
+    .inside {
+        width: auto;
+    }
+
+    /* the avatar side */
+    .inside-left {
+        width: 60%;
+    }
+    
+    /* the slogan side */
+    .inside-right {
+        width: 40%;
+    }
+
+    /* image of avatar */
+    .inside-right img {
+        height: 50%;
+    }
+
+    #below-avatar {
+        display: block;
+        text-align: center;
+    }
+}
+
