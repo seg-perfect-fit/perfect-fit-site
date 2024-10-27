@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Login - Virtual Closet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #0277bd; /* Dark blue title */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #81d4fa; /* Blue border */
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #0288d1; /* Blue submit button */
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0277bd;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+            color: #01579b; /* Link color */
+        }
+        .link a {
+            color: #01579b;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        /* Clothing options under the silhouette */
+        .clothes-options {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .clothes-options button {
+            margin: 10px;
+            padding: 10px;
+            background-color: #ffa726; /* Light orange */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .clothes-options button:hover {
+            background-color: #ff7043;
+        }
+
+        #canvas-container {
+            width: 300px;
+            height: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="login-section">
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="return validateLogin()">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="submit" value="Log In">
+        <p class="error" id="error-message"></p>
+    </form>
+    <div class="link">
+        <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></p>
+    </div>
+</div>
+
+<div class="container" id="avatar-section" style="display: none;">
+    <h2 id="welcome-message"></h2>
+    <p>This is your profile!</p>
+
+    <!-- Spinning silhouette -->
+    <div id="canvas-container"></div>
+
+    <!-- Clothing options -->
+    <div class="clothes-options">
+        <button onclick="changeClothes('Shirt')">Shirt</button>
+        <button onclick="changeClothes('Pants')">Pants</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // Conditional login validation
+    function validateLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var errorMessage = document.getElementById("error-message");
+
+        // Check if fields are filled
+        if (!username || !password) {
+            errorMessage.textContent = "All fields are required.";
+            return false;
+        }
+
+        showAvatar(username);
+        return false; // Prevent form submission
+    }
+
+    // Show avatar conditionally
+    function showAvatar(username) {
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("avatar-section").style.display = "block";
+        document.getElementById("welcome-message").textContent = username + ", this is your profile!";
+        initThreeJS();
+    }
+
+    // Initialize Three.js scene
+    function initThreeJS() {
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, 300 / 600, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        var container = document.getElementById('canvas-container');
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        // Create materials
+        var bodyMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
+        var shirtMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+        var pantsMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+
+        // Create body parts
+        var head = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), bodyMaterial);
+        var body = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2, 32), bodyMaterial);
+        var leftArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32), bodyMaterial);
+        var rightArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32), bodyMaterial);
+        var leftLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2, 32), bodyMaterial);
+        var rightLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2, 32), bodyMaterial);
+
+        // Position body parts
+        head.position.y = 3;
+        body.position.y = 1;
+        leftArm.position.set(-0.8, 1.5, 0);
+        rightArm.position.set(0.8, 1.5, 0);
+        leftLeg.position.set(-0.4, -1.5, 0);
+        rightLeg.position.set(0.4, -1.5, 0);
+
+        // Add body parts to scene
+        scene.add(head);
+        scene.add(body);
+        scene.add(leftArm);
+        scene.add(rightArm);
+        scene.add(leftLeg);
+        scene.add(rightLeg);
+
+        camera.position.z = 6;
+
+        var animate = function () {
+            requestAnimationFrame(animate);
+            scene.rotation.y += 0.01; // Rotate the silhouette
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Change clothes color
+        window.changeClothes = function (clothingItem) {
+            if (clothingItem === 'Shirt') {
+                body.material = shirtMaterial;
+                leftArm.material = shirtMaterial;
+                rightArm.material = shirtMaterial;
+            } else if (clothingItem === 'Pants') {
+                leftLeg.material = pantsMaterial;
+                rightLeg.material = pantsMaterial;
+            }
+        }
+    }
+
+    function switchToSignup() {
+        document.getElementById("login-form").reset();
+        document.getElementById("error-message").textContent = "";
+        document.getElementById("login-section").style.display = "block";
+        document.getElementById("avatar-section").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
