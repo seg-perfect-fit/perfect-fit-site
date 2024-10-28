@@ -1,3 +1,5 @@
+/* add this as a background color #e0f7fa */
+
 html {
     font-size: 16px;
 }
@@ -11,6 +13,7 @@ html {
   font-optical-sizing: auto;
   /* font-weight: <whatever>; */
   font-style: normal;
+  background-color: #e0f7fa;
 }
 
 h1 {
@@ -199,8 +202,8 @@ h2 {
 }
 
 #main-text div {
-    background-color: green;
-    border-radius: 50px;
+    background-color: #65c0f5;
+    /* border-radius: 50px; */
     /* each div takes 50% of avaliable space */
     width: 50%;
 }
