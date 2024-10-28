@@ -1,0 +1,17 @@
+CSS style sheet
+Logo and alternative
+
+Color palette
+
+- Light orange #ffa726
+- Darker orange #ff7043
+- Dark blue #01579b
+- Lighter dark blue #0277bd
+- Light blue #65c0f5
+Text font
+Text/font: https://fonts.google.com/specimen/DM+Sans?query=DM+Sans 
+DM Sans on Google fonts
+Icons
+https://icons.getbootstrap.com/
+
+
