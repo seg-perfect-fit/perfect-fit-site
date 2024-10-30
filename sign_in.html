@@ -1,190 +1,271 @@
 <!-- Ugbad's section --> <!--compleated login/sighnup page-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up / Login - Virtual Closet</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa; /* Light blue background */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            max-width: 500px;
-            width: 100%;
-        }
-        h2 {
-            text-align: center;
-            color: #0277bd; /* Dark blue title */
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        input[type="text"], input[type="email"], input[type="password"] {
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #81d4fa; /* Blue border */
-            border-radius: 5px;
-        }
-        input[type="submit"] {
-            background-color: #0288d1; /* Blue submit button */
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        input[type="submit"]:hover {
-            background-color: #0277bd;
-        }
-        .link {
-            text-align: center;
-            margin-top: 20px;
-            color: #01579b; /* Link color */
-        }
-        .link a {
-            color: #01579b;
-            text-decoration: none;
-        }
-        .link a:hover {
-            text-decoration: underline;
-        }
-        .error {
-            color: red;
-            margin-top: 5px;
-        }
-        .password-container {
-            position: relative;
-        }
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 35px;
-            cursor: pointer;
-            color: #0277bd;
-        }
-    </style>
-</head>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
 <body>
+    <!-- Bootstrap nav bar -->
+    <div class="sticky-top fade-in bs-nav" id="nav-top">
+        <nav class="navbar navbar-expand-md w-100" id="nav">
+            <a href="#" class="navbar-brand">
+                <img id="nav-logo" src="images/perfect_fit_logo.jpg" alt="Logo" id="nav-logo">
+                <a id="nav-text">Perfect Fit</a>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-target="#links" data-bs-toggle="collapse"
+                id="nav-toggler">
+                <!-- Add navbar toggle icon later -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="links">
+                <div class="navbar-nav" id="links">
+                    <a href="#" class="nav-item nav-link">Home</a>
+                    <a href="#" class="nav-item nav-link">Features</a>
+                    <a href="sign_in" class="nav-item nav-link">Login</a>
+                    <a href="contact" class="nav-item nav-link">Contact</a>
+                    <a href="FAQs" class="nav-item nav-link">FAQs</a>
+                    <a href="#" class="nav-item nav-link">Privacy</a>
 
-<div class="container" id="signup-section">
-    <h2>Sign Up</h2>
-    <form id="signup-form" onsubmit="return handleSignup()">
-        <input type="text" id="signup-username" placeholder="Username" required>
-        <input type="email" id="signup-email" placeholder="Email" required>
-        <div class="password-container">
-            <input type="password" id="signup-password" placeholder="Password" required>
-            <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
-        </div>
-        <div class="password-container">
-            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-            <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
-        </div>
-        <input type="submit" value="Sign Up">
-        <p class="error" id="signup-error-message"></p>
-    </form>
-    <div class="link">
-        <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
+                    <!-- Temporary -->
+                    <!-- <a href="transition" class="nav-item nav-link">SC</a>
+            <a href="about_us" class="nav-item nav-link">About</a>
+            <a href="feedback" class="nav-item nav-link">Feedback</a>
+            <a href="profile" class="nav-item nav-link">Profile</a> -->
+                </div>
+            </div>
+        </nav>
     </div>
-</div>
 
-<div class="container" id="login-section" style="display: none;">
-    <h2>Login</h2>
-    <form id="login-form" onsubmit="return handleLogin()">
-        <input type="text" id="login-username" placeholder="Username" required>
-        <div class="password-container">
-            <input type="password" id="login-password" placeholder="Password" required>
-            <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+    <div id="body">
+
+        <title>Sign Up / Login - Virtual Closet</title>
+        <style>
+ 
+            body {
+                font-family: "DM Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-style: normal;
+                background-color: #e0f7fa;
+            }
+
+            #body {
+                font-family: "DM Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-style: normal;
+                background-color: #e0f7fa;
+
+                /* Light blue background */
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* height: 100vh; */
+                width: 100%;
+            }
+
+            .container {
+                background-color: #ffffff;
+                padding: 50px;
+                border-radius: 20px;
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+                max-width: 500px;
+                width: 100%;
+            }
+
+            h2 {
+                text-align: center;
+                color: #0277bd;
+                /* Dark blue title */
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                padding: 12px;
+                margin: 10px 0;
+                border: 1px solid #81d4fa;
+                /* Blue border */
+                border-radius: 5px;
+            }
+
+            input[type="submit"] {
+                background-color: #0288d1;
+                /* Blue submit button */
+                color: white;
+                border: none;
+                padding: 12px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #0277bd;
+            }
+
+            .link {
+                text-align: center;
+                margin-top: 20px;
+                color: #01579b;
+                /* Link color */
+            }
+
+            .link a {
+                color: #01579b;
+                text-decoration: none;
+            }
+
+            .link a:hover {
+                text-decoration: underline;
+            }
+
+            .error {
+                color: red;
+                margin-top: 5px;
+            }
+
+            .password-container {
+                position: relative;
+            }
+
+            .toggle-password {
+                position: absolute;
+                right: 10px;
+                top: 35px;
+                cursor: pointer;
+                color: #0277bd;
+            }
+        </style>
+        <link rel="stylesheet" href="navbar.css">
+        </head>
+
+        <div>
+            <div class="container" id="signup-section">
+                <h2>Sign Up</h2>
+                <form id="signup-form" onsubmit="return handleSignup()">
+                    <input type="text" id="signup-username" placeholder="Username" required>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                    <div class="password-container">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                        <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+                    </div>
+                    <div class="password-container">
+                        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                        <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+                    </div>
+                    <input type="submit" value="Sign Up">
+                    <p class="error" id="signup-error-message"></p>
+                </form>
+                <div class="link">
+                    <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
+                </div>
+            </div>
+
+            <div class="container" id="login-section" style="display: none;">
+                <h2>Login</h2>
+                <form id="login-form" onsubmit="return handleLogin()">
+                    <input type="text" id="login-username" placeholder="Username" required>
+                    <div class="password-container">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+                    </div>
+                    <input type="submit" value="Log In">
+                    <p class="error" id="login-error-message"></p>
+                </form>
+                <div class="link">
+                    <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></p>
+                </div>
+            </div>
+
+            <div class="container" id="profile-section" style="display: none;">
+                <h2 id="welcome-message"></h2>
+                <p>Welcome to your profile!</p>
+            </div>
         </div>
-        <input type="submit" value="Log In">
-        <p class="error" id="login-error-message"></p>
-    </form>
-    <div class="link">
-        <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></p>
     </div>
-</div>
 
-<div class="container" id="profile-section" style="display: none;">
-    <h2 id="welcome-message"></h2>
-    <p>Welcome to your profile!</p>
-</div>
-
-<script>
-    // Toggle password visibility
-    function togglePassword(inputId) {
-        const passwordField = document.getElementById(inputId);
-        passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
-    }
-
-    // Handle Sign Up
-    function handleSignup() {
-        const username = document.getElementById('signup-username').value;
-        const password = document.getElementById('signup-password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
-        const errorMessage = document.getElementById('signup-error-message');
-
-        // Check if passwords match
-        if (password !== confirmPassword) {
-            errorMessage.textContent = "Passwords do not match.";
-            return false;
+    <script>
+        // Toggle password visibility
+        function togglePassword(inputId) {
+            const passwordField = document.getElementById(inputId);
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
         }
 
-        // Store user data temporarily (for example only; replace with server logic in production)
-        if (username && password) {
-            sessionStorage.setItem('username', username);
-            sessionStorage.setItem('password', password);
-            alert('Account created successfully!');
-            switchToLogin();
-        } else {
-            errorMessage.textContent = "Please fill in all fields.";
+        // Handle Sign Up
+        function handleSignup() {
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('signup-error-message');
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match.";
+                return false;
+            }
+
+            // Store user data temporarily (for example only; replace with server logic in production)
+            if (username && password) {
+                sessionStorage.setItem('username', username);
+                sessionStorage.setItem('password', password);
+                alert('Account created successfully!');
+                switchToLogin();
+            } else {
+                errorMessage.textContent = "Please fill in all fields.";
+            }
+            return false; // Prevent form submission
         }
-        return false; // Prevent form submission
-    }
 
-    // Handle Login
-    function handleLogin() {
-        const username = document.getElementById('login-username').value;
-        const password = document.getElementById('login-password').value;
-        const errorMessage = document.getElementById('login-error-message');
+        // Handle Login
+        function handleLogin() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const errorMessage = document.getElementById('login-error-message');
 
-        // Retrieve user data
-        const storedUsername = sessionStorage.getItem('username');
-        const storedPassword = sessionStorage.getItem('password');
+            // Retrieve user data
+            const storedUsername = sessionStorage.getItem('username');
+            const storedPassword = sessionStorage.getItem('password');
 
-        // Check credentials
-        if (username === storedUsername && password === storedPassword) {
+            // Check credentials
+            if (username === storedUsername && password === storedPassword) {
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('profile-section').style.display = 'block';
+                document.getElementById('welcome-message').textContent = `Welcome, ${username}!`;
+            } else {
+                errorMessage.textContent = "Invalid username or password.";
+            }
+            return false; // Prevent form submission
+        }
+
+        function switchToLogin() {
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+        }
+
+        function switchToSignup() {
             document.getElementById('login-section').style.display = 'none';
-            document.getElementById('profile-section').style.display = 'block';
-            document.getElementById('welcome-message').textContent = `Welcome, ${username}!`;
-        } else {
-            errorMessage.textContent = "Invalid username or password.";
+            document.getElementById('signup-section').style.display = 'block';
         }
-        return false; // Prevent form submission
-    }
-
-    function switchToLogin() {
-        document.getElementById('signup-section').style.display = 'none';
-        document.getElementById('login-section').style.display = 'block';
-    }
-
-    function switchToSignup() {
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('signup-section').style.display = 'block';
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
