@@ -1,25 +1,13 @@
-<!-- Ugbad's section -->
+<!-- Ugbad's section --> <!--compleated login/sighnup page-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-        rel="stylesheet">
-
     <title>Sign Up / Login - Virtual Closet</title>
     <style>
         body {
-            /* google font settings */
-            font-family: "DM Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-
+            font-family: Arial, sans-serif;
             background-color: #e0f7fa; /* Light blue background */
             margin: 0;
             padding: 0;
@@ -78,103 +66,75 @@
             color: red;
             margin-top: 5px;
         }
-
-        /* Spinning silhouette with expanded VR grid effect */
-        #silhouette {
-            width: 200px;
-            height: 400px;
-            margin: 20px auto;
-            background-image: url('https://www.kindpng.com/picc/m/114-1147287_woman-cartoon-silhouette-png-transparent-png.png'); /* Replace with your image URL */
-            background-size: cover;
+        .password-container {
             position: relative;
-            box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.9); /* Stronger glowing effect */
-            animation: fullSpin 5s linear infinite; /* Full 360 spin, slower */
         }
-
-        /* Expanded VR scan effect with blue grid */
-        #silhouette:before {
-            content: '';
+        .toggle-password {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(0, 255, 255, 0.2) 25%, rgba(0, 255, 255, 0.3) 25%, rgba(0, 255, 255, 0.3) 50%, rgba(0, 255, 255, 0.2) 50%);
-            background-size: 40px 40px; /* Larger grid size */
-            opacity: 0.7;
-        }
-
-        @keyframes fullSpin {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); } /* Spins all around */
-        }
-
-        /* Clothing options under the silhouette */
-        .clothes-options {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .clothes-options button {
-            margin: 10px;
-            padding: 10px;
-            background-color: #ffa726; /* Light orange */
-            color: white;
-            border: none;
-            border-radius: 5px;
+            right: 10px;
+            top: 35px;
             cursor: pointer;
-        }
-        .clothes-options button:hover {
-            background-color: #ff7043;
+            color: #0277bd;
         }
     </style>
 </head>
 <body>
 
-<div class="container" id="login-section">
-    <h2>Sign Up / Login</h2>
-    <form id="signup-form" onsubmit="return validateForm()">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+<div class="container" id="signup-section">
+    <h2>Sign Up</h2>
+    <form id="signup-form" onsubmit="return handleSignup()">
+        <input type="text" id="signup-username" placeholder="Username" required>
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <div class="password-container">
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+        </div>
+        <div class="password-container">
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+        </div>
         <input type="submit" value="Sign Up">
-        <p class="error" id="error-message"></p>
+        <p class="error" id="signup-error-message"></p>
     </form>
     <div class="link">
         <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
     </div>
 </div>
 
-<div class="container" id="avatar-section" style="display: none;">
-    <h2 id="welcome-message"></h2>
-    <p>This is your profile!</p>
-
-    <!-- Spinning silhouette -->
-    <div id="silhouette"></div>
-
-    <!-- Clothing options -->
-    <div class="clothes-options">
-        <button onclick="changeClothes('Shirt')">Shirt</button>
-        <button onclick="changeClothes('Pants')">Pants</button>
-        <button onclick="changeClothes('Shoes')">Shoes</button>
+<div class="container" id="login-section" style="display: none;">
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="return handleLogin()">
+        <input type="text" id="login-username" placeholder="Username" required>
+        <div class="password-container">
+            <input type="password" id="login-password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+        </div>
+        <input type="submit" value="Log In">
+        <p class="error" id="login-error-message"></p>
+    </form>
+    <div class="link">
+        <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></p>
     </div>
 </div>
 
-<script>
-    // Conditional form validation
-    function validateForm() {
-        var username = document.getElementById("username").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var confirmPassword = document.getElementById("confirm-password").value;
-        var errorMessage = document.getElementById("error-message");
+<div class="container" id="profile-section" style="display: none;">
+    <h2 id="welcome-message"></h2>
+    <p>Welcome to your profile!</p>
+</div>
 
-        // Conditional check for form validation
-        if (!username || !email || !password || !confirmPassword) {
-            errorMessage.textContent = "All fields are required.";
-            return false;
-        }
+<script>
+    // Toggle password visibility
+    function togglePassword(inputId) {
+        const passwordField = document.getElementById(inputId);
+        passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+    }
+
+    // Handle Sign Up
+    function handleSignup() {
+        const username = document.getElementById('signup-username').value;
+        const password = document.getElementById('signup-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        const errorMessage = document.getElementById('signup-error-message');
 
         // Check if passwords match
         if (password !== confirmPassword) {
@@ -182,33 +142,47 @@
             return false;
         }
 
-        showAvatar(username);
-        return false; // Prevent form from submitting
-    }
-
-    // Show avatar conditionally
-    function showAvatar(username) {
-        document.getElementById("login-section").style.display = "none";
-        document.getElementById("avatar-section").style.display = "block";
-        document.getElementById("welcome-message").textContent = username + ", this is your profile!";
-    }
-
-    // Conditional clothing change based on button clicked
-    function changeClothes(clothingItem) {
-        if (clothingItem === 'Shirt') {
-            alert("A cool shirt was added to your avatar!");
-        } else if (clothingItem === 'Pants') {
-            alert("Stylish pants were added to your avatar!");
-        } else if (clothingItem === 'Shoes') {
-            alert("Awesome shoes were added to your avatar!");
+        // Store user data temporarily (for example only; replace with server logic in production)
+        if (username && password) {
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('password', password);
+            alert('Account created successfully!');
+            switchToLogin();
         } else {
-            alert("Please choose a valid clothing item.");
+            errorMessage.textContent = "Please fill in all fields.";
         }
+        return false; // Prevent form submission
+    }
+
+    // Handle Login
+    function handleLogin() {
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        const errorMessage = document.getElementById('login-error-message');
+
+        // Retrieve user data
+        const storedUsername = sessionStorage.getItem('username');
+        const storedPassword = sessionStorage.getItem('password');
+
+        // Check credentials
+        if (username === storedUsername && password === storedPassword) {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('profile-section').style.display = 'block';
+            document.getElementById('welcome-message').textContent = `Welcome, ${username}!`;
+        } else {
+            errorMessage.textContent = "Invalid username or password.";
+        }
+        return false; // Prevent form submission
     }
 
     function switchToLogin() {
-        document.getElementById("signup-form").reset();
-        document.getElementById("error-message").textContent = "";
+        document.getElementById('signup-section').style.display = 'none';
+        document.getElementById('login-section').style.display = 'block';
+    }
+
+    function switchToSignup() {
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('signup-section').style.display = 'block';
     }
 </script>
 

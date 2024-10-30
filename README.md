@@ -10,7 +10,7 @@ Members:
 * Souren Savari 300446627
 * Nahla Bouchanane 300449313
 * Othmane El Moutaouakkil 300422326
-* Jaffer Nasrallah 300425969
+* Jaffer Nasrallah 300426959
 ________________________________
 Product name: PerfectFit
 
