@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <title>Virtual Closet</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e0f7fa; /* Light blue background */
+        #body {
+            /* Google font settings */
+            font-family: "DM Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+
+            background-color: #e0f7fa;
+            /* Light blue background */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* Center vertically */
+            align-items: center;
+            /* Center vertically */
             height: 100vh;
             position: relative;
-            flex-direction: column; /* Arrange items in a column */
+            flex-direction: column;
+            /* Arrange items in a column */
         }
 
         /* Menu styling */
         .menu {
-            background-color: #ffa726; /* Orange menu */
+            background-color: #ffa726;
+            /* Orange menu */
             width: 100%;
             padding: 10px;
             position: absolute;
@@ -33,12 +54,14 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: space-evenly; /* Even spacing */
+            justify-content: space-evenly;
+            /* Even spacing */
         }
 
         .menu li {
             position: relative;
-            margin: 0; /* Remove right margin for even spacing */
+            margin: 0;
+            /* Remove right margin for even spacing */
         }
 
         .menu a {
@@ -50,7 +73,8 @@
         }
 
         .menu a:hover {
-            background-color: #ff7043; /* Darker orange on hover */
+            background-color: #ff7043;
+            /* Darker orange on hover */
         }
 
         /* Dropdown styling */
@@ -64,35 +88,51 @@
         }
 
         .menu li:hover .dropdown {
-            display: block; /* Show dropdown on hover */
+            display: block;
+            /* Show dropdown on hover */
         }
 
         .dropdown a {
             padding: 8px 12px;
-            white-space: nowrap; /* Prevent wrapping */
+            white-space: nowrap;
+            /* Prevent wrapping */
         }
 
         /* Phone background with character styling */
         .phone {
-            width: 250px; /* Width of the phone */
-            height: 500px; /* Height of the phone */
-            background-color: black; /* Outer rectangle background */
-            border-radius: 20px; /* Rounded edges */
-            position: relative; /* Positioning for internal elements */
+            width: 250px;
+            /* Width of the phone */
+            height: 500px;
+            /* Height of the phone */
+            background-color: black;
+            /* Outer rectangle background */
+            border-radius: 20px;
+            /* Rounded edges */
+            position: relative;
+            /* Positioning for internal elements */
             display: flex;
             justify-content: center;
-            align-items: center; /* Center character vertically */
-            overflow: hidden; /* Hide overflow for clean look */
+            align-items: center;
+            /* Center character vertically */
+            overflow: hidden;
+            /* Hide overflow for clean look */
         }
 
         .character {
-            width: 200px; /* Character size */
-            height: 400px; /* Character height */
-            border: 2px solid black; /* Black outline */
-            border-radius: 20px; /* Rounded edges */
-            position: relative; /* Relative positioning for character */
-            overflow: hidden; /* Hide overflow for clean look */
-            background-color: transparent; /* No background */
+            width: 200px;
+            /* Character size */
+            height: 400px;
+            /* Character height */
+            border: 2px solid black;
+            /* Black outline */
+            border-radius: 20px;
+            /* Rounded edges */
+            position: relative;
+            /* Relative positioning for character */
+            overflow: hidden;
+            /* Hide overflow for clean look */
+            background-color: transparent;
+            /* No background */
         }
 
         /* Clothing options */
@@ -104,122 +144,159 @@
 
         /* Canvas container for character rendering */
         #canvas-container {
-            width: 200px; /* Width to match character */
-            height: 400px; /* Height to match character */
-            margin: 0 auto; /* Center the canvas */
+            width: 200px;
+            /* Width to match character */
+            height: 400px;
+            /* Height to match character */
+            margin: 0 auto;
+            /* Center the canvas */
         }
     </style>
+    <link rel="stylesheet" href="navbar.css">
 </head>
+
 <body>
+    <!-- Bootstrap nav bar -->
+    <div class="sticky-top fade-in" id="nav-top">
+        <nav class="navbar navbar-expand-md" id="nav">
+            <a href="#" class="navbar-brand">
+                <img id="nav-logo" src="images/perfect_fit_logo.jpg" alt="Logo" id="nav-logo">
+                <a id="nav-text">Perfect Fit</a>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-target="#links" data-bs-toggle="collapse"
+                id="nav-toggler">
+                <!-- Add navbar toggle icon later -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="links">
+                <div class="navbar-nav" id="links">
+                    <a href="#" class="nav-item nav-link">Home</a>
+                    <a href="#" class="nav-item nav-link">Features</a>
+                    <a href="sign_in" class="nav-item nav-link">Login</a>
+                    <a href="contact" class="nav-item nav-link">Contact</a>
+                    <a href="FAQs" class="nav-item nav-link">FAQs</a>
+                    <a href="#" class="nav-item nav-link">Privacy</a>
 
-<!-- Menu -->
-<div class="menu">
-    <ul>
-        <li><a href="#">Pants</a>
-            <div class="dropdown">
-                <a href="#" onclick="changeClothes('Pants')">Jeans</a>
-                <a href="#" onclick="changeClothes('Pants')">Cargo</a>
-                <a href="#" onclick="changeClothes('Pants')">Shorts</a>
-                <a href="#" onclick="changeClothes('Pants')">Sweatpants</a>
-                <a href="#" onclick="changeClothes('Pants')">Dress Pants</a>
-                <a href="#" onclick="changeClothes('Pants')">Track Pants</a>
+                    <!-- Temporary -->
+                    <!-- <a href="transition" class="nav-item nav-link">SC</a>
+                <a href="about_us" class="nav-item nav-link">About</a>
+                <a href="feedback" class="nav-item nav-link">Feedback</a>
+                <a href="profile" class="nav-item nav-link">Profile</a> -->
+                </div>
             </div>
-        </li>
-        <li><a href="#">Shirts</a>
-            <div class="dropdown">
-                <a href="#" onclick="changeClothes('Shirt')">Polos</a>
-                <a href="#" onclick="changeClothes('Shirt')">T-Shirts</a>
-                <a href="#" onclick="changeClothes('Shirt')">Flannels</a>
-                <a href="#" onclick="changeClothes('Shirt')">Hoodies</a>
-                <a href="#" onclick="changeClothes('Shirt')">Sweatshirts</a>
-            </div>
-        </li>
-        <li><a href="#">Shoes</a>
-            <div class="dropdown">
-                <a href="#">Sneakers</a>
-                <a href="#">Boots</a>
-                <a href="#">Sandals</a>
-                <a href="#">Loafers</a>
-                <a href="#">Dress Shoes</a>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<!-- Phone background with character -->
-<div class="phone">
-    <div class="character">
-        <div id="canvas-container"></div>
+        </nav>
     </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    // Initialize Three.js scene
-    function initThreeJS() {
-        var scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x00000000); // Set scene background to transparent
-        var camera = new THREE.PerspectiveCamera(75, 200 / 400, 0.1, 1000);
-        var renderer = new THREE.WebGLRenderer({ alpha: true }); // Enable alpha for transparent background
-        var container = document.getElementById('canvas-container');
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
+    <div id="body">
+        <!-- Menu -->
+        <div class="menu">
+            <ul>
+                <li><a href="#">Pants</a>
+                    <div class="dropdown">
+                        <a href="#" onclick="changeClothes('Pants')">Jeans</a>
+                        <a href="#" onclick="changeClothes('Pants')">Cargo</a>
+                        <a href="#" onclick="changeClothes('Pants')">Shorts</a>
+                        <a href="#" onclick="changeClothes('Pants')">Sweatpants</a>
+                        <a href="#" onclick="changeClothes('Pants')">Dress Pants</a>
+                        <a href="#" onclick="changeClothes('Pants')">Track Pants</a>
+                    </div>
+                </li>
+                <li><a href="#">Shirts</a>
+                    <div class="dropdown">
+                        <a href="#" onclick="changeClothes('Shirt')">Polos</a>
+                        <a href="#" onclick="changeClothes('Shirt')">T-Shirts</a>
+                        <a href="#" onclick="changeClothes('Shirt')">Flannels</a>
+                        <a href="#" onclick="changeClothes('Shirt')">Hoodies</a>
+                        <a href="#" onclick="changeClothes('Shirt')">Sweatshirts</a>
+                    </div>
+                </li>
+                <li><a href="#">Shoes</a>
+                    <div class="dropdown">
+                        <a href="#">Sneakers</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Sandals</a>
+                        <a href="#">Loafers</a>
+                        <a href="#">Dress Shoes</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-        // Create materials
-        var bodyMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
-        var shirtMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
-        var pantsMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+        <!-- Phone background with character -->
+        <div class="phone">
+            <div class="character">
+                <div id="canvas-container"></div>
+            </div>
+        </div>
 
-        // Create body parts
-        var head = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), bodyMaterial);
-        var body = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2, 32), bodyMaterial);
-        var leftArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32), bodyMaterial);
-        var rightArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32), bodyMaterial);
-        var leftLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2, 32), bodyMaterial);
-        var rightLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2, 32), bodyMaterial);
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script>
+            // Initialize Three.js scene
+            function initThreeJS() {
+                var scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x00000000); // Set scene background to transparent
+                var camera = new THREE.PerspectiveCamera(75, 200 / 400, 0.1, 1000);
+                var renderer = new THREE.WebGLRenderer({ alpha: true }); // Enable alpha for transparent background
+                var container = document.getElementById('canvas-container');
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                container.appendChild(renderer.domElement);
 
-        // Position body parts
-        head.position.y = 3;
-        body.position.y = 1;
-        leftArm.position.set(-0.8, 1.5, 0);
-        rightArm.position.set(0.8, 1.5, 0);
-        leftLeg.position.set(-0.4, -1.5, 0);
-        rightLeg.position.set(0.4, -1.5, 0);
+                // Create materials
+                var bodyMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
+                var shirtMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+                var pantsMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
 
-        // Add body parts to scene
-        scene.add(head);
-        scene.add(body);
-        scene.add(leftArm);
-        scene.add(rightArm);
-        scene.add(leftLeg);
-        scene.add(rightLeg);
+                // Create body parts
+                var head = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), bodyMaterial);
+                var body = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2, 32), bodyMaterial);
+                var leftArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32), bodyMaterial);
+                var rightArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32), bodyMaterial);
+                var leftLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2, 32), bodyMaterial);
+                var rightLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2, 32), bodyMaterial);
 
-        camera.position.z = 6;
+                // Position body parts
+                head.position.y = 3;
+                body.position.y = 1;
+                leftArm.position.set(-0.8, 1.5, 0);
+                rightArm.position.set(0.8, 1.5, 0);
+                leftLeg.position.set(-0.4, -1.5, 0);
+                rightLeg.position.set(0.4, -1.5, 0);
 
-        var animate = function () {
-            requestAnimationFrame(animate);
-            scene.rotation.y += 0.01; // Rotate the silhouette
-            renderer.render(scene, camera);
-        };
+                // Add body parts to scene
+                scene.add(head);
+                scene.add(body);
+                scene.add(leftArm);
+                scene.add(rightArm);
+                scene.add(leftLeg);
+                scene.add(rightLeg);
 
-        animate();
+                camera.position.z = 6;
 
-        // Change clothes color
-        window.changeClothes = function (clothingItem) {
-            if (clothingItem === 'Shirt') {
-                body.material = shirtMaterial;
-                leftArm.material = shirtMaterial;
-                rightArm.material = shirtMaterial;
-            } else if (clothingItem === 'Pants') {
-                leftLeg.material = pantsMaterial;
-                rightLeg.material = pantsMaterial;
+                var animate = function () {
+                    requestAnimationFrame(animate);
+                    scene.rotation.y += 0.01; // Rotate the silhouette
+                    renderer.render(scene, camera);
+                };
+
+                animate();
+
+                // Change clothes color
+                window.changeClothes = function (clothingItem) {
+                    if (clothingItem === 'Shirt') {
+                        body.material = shirtMaterial;
+                        leftArm.material = shirtMaterial;
+                        rightArm.material = shirtMaterial;
+                    } else if (clothingItem === 'Pants') {
+                        leftLeg.material = pantsMaterial;
+                        rightLeg.material = pantsMaterial;
+                    }
+                }
             }
-        }
-    }
 
-    // Initialize the scene on load
-    window.onload = initThreeJS;
-</script>
-
+            // Initialize the scene on load
+            window.onload = initThreeJS;
+        </script>
+    </div>
 </body>
+
 </html>
