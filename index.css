@@ -194,22 +194,60 @@ h2 {
     padding-left: 5px;
 }
 
+/* the details section! */
+#parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* background img stuff */
+#background-img-details {
+    /* sets the position of the image */
+    position: relative;
+
+    /* sets the sizing */
+    width: 100%;
+    height: auto;
+}
+
+
+#background-img-details img {
+    display: block;
+    /* sizing */
+    width: 100%;
+    height: auto;
+
+    /* allows the image and divs to overlay */
+    position: absolute;
+
+}
+
+
 /* main text */
 #main-text {
     display: flex;
 
+    /* this needs to change along with background-img-details's values */
+    position: relative;
+
+    /* making the div a layer on top of the image */
+    z-index: 1;
+
     /* adjusting the size of our div */
     margin: auto;
+
     /* takes up 80% of screen */
     width: 80%;
 }
 
 #main-text div {
-    background-color: #65c0f5;
+    /* background-color: #65c0f5; */
     /* border-radius: 50px; */
     /* each div takes 50% of avaliable space */
     width: 50%;
 }
+
 
 /* Classes to hide/show items */
 .fade-in {
