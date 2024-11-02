@@ -224,6 +224,8 @@ h2 {
 }
 
 
+/* use vxh for relative sizing compared to viewport */
+
 /* main text */
 #main-text {
     display: flex;
