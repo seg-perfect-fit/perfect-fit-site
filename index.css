@@ -25,20 +25,69 @@ h2 {
     font-weight: normal;
 }
 
+
+
+
+
+
+
+
+
 /* The two boxes */
 #main {
     display: flex;
     justify-content: space-between;
-    background-color: white;
-    border: 5px solid white;
-    border-radius: 20px;
-    box-shadow: 0 0 50px 15px #48abe0;
+    /* border: 10px solid transparent; */
+
+    /* same border radius as the main elements displayed on page */
+    /* border-radius: 30px; */
+
+    /* box-shadow: 0 0 50px 15px #48abe0; */
+    /* box-shadow: 0 0 50px 15px rgba(255, 166, 0, 0.291); */
+
+    /* background-color: transparent; */
+
+    /* making the box smaller */
+    width: 93%;
+    height: auto;
+    /* centering everything */
+    margin: 0 auto;
 }
 
 #main div {
-    border: 5px solid white;
+    /* border: 5px solid #e0f7fa; */
+    border: 5px solid rgba(0, 0, 0, 0);
     border-radius: 30px;
 }
+
+
+
+
+
+
+
+
+
+
+/* the different seperate sections of the webpage */
+#home-page-main {
+    min-height: 100vh;
+    /* width: 100%; */
+    background: linear-gradient(#e0f7fa, rgba(91, 163, 252, 0.597));
+}
+
+#home-page-details {
+    background: linear-gradient(rgba(91, 164, 252, 0.5), #e0f7fa);
+}
+
+
+
+
+
+
+
+
+
 
 /* Modifying the actual boxes' content */
 .inside {
@@ -50,15 +99,24 @@ h2 {
     height: 31.25rem; 
 
     vertical-align: top;
+    margin-top: 30px;
 }
 
 .inside-left{
     background-color: #65c0f5;
+    box-shadow: 12px 12px 2px 1px #48abe0;
+    /* box-shadow: 0 0 50px 15px #48abe0; */
+
+    margin-right: 20px;
     /* width: 20%; */
 }
 
 .inside-right{
     background-color: #ffa726;
+    box-shadow: 12px 12px 2px 1px #e0851f;
+    /* box-shadow: 0 0 50px 5px #e0851f; */
+
+    margin-left: 20px
 }
 
 /* image stuff */
@@ -73,7 +131,7 @@ h2 {
     height: 100%;
 
     /* making it pretty */
-    border: 10px solid red;
+    border: 10px solid white;
     border-radius: 10px;
  }
  
@@ -97,7 +155,10 @@ h2 {
     /* text-decoration: underline !important;
     text-decoration-color: underline 20px white !important; */
     color: #ff7043;
-    text-shadow: rgba(255,168,38,0.9) 0px 0px 39px;
+
+    /* text-shadow: rgba(255,168,38,0.9) 0px 0px 39px; */
+    /* from https://unused-css.com/tools/text-shadow-generator?p=21AwAlCZgBwDxBiA7AM2MZyA0pQGZpzwCcAHLgIwbZggAsBCAhgMYCsRGQA */
+    text-shadow: 0 0 10px rgba(255,168,38,0.9), 0 0 30px rgba(255,225,0,0.5);
 }
 
 /* interactivity in the slogan (left) box */
@@ -121,7 +182,8 @@ h2 {
     border-radius: 10px;
 
     /* transitions */
-    transition: color 150ms ease-in;
+    transform: translateY(0px);
+    transition: box-shadow 150ms ease-in, color 150ms ease-in, transform 150ms ease-in;
 }
 
 #text-interactive {
@@ -139,11 +201,22 @@ h2 {
 #button-interactive:hover {
     color: white;
     text-shadow: rgba(247, 247, 247, 0.9) 0px 0px 39px;
+
+    box-shadow: 8px -8px 1px 1px #e0851f;
+    transform: translateY(-2px);
 }
 
 #link-interactive:hover {
     color: #ff7043;
 }
+
+
+
+
+
+
+
+
 
 /* NAV bar stuff */
 #nav-top {
@@ -194,21 +267,76 @@ h2 {
     padding-left: 5px;
 }
 
+
+
+
+
+
+
+/* the app-store logos section! */
+#app-stores {
+    position: relative;
+    /* top: 13vh; */
+
+    /* moving the images down */
+    top: 80px;
+}
+
+/* setting image sizes */
+#google-play img, #ios-appstore img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+
+}
+
+/* organizing how image divs align content */
+#google-play {
+    text-align: right;
+}
+
+#ios-appstore {
+    text-align: left;
+}
+
+/* remove the padding around the default btn style */
+#google-play a, #ios-appstore a {
+    padding: 0;
+    transform: translateY(0px);
+    transition: box-shadow 150ms ease-out, transform 150ms ease-out;
+}
+
+/* highlight the icons when they are hovered */
+#google-play a:hover, #ios-appstore a:hover {
+    box-shadow: 12px 12px 2px 1px #e0851f;
+    transform: translateY(-5px);
+}
+
+
+
+
+
+
 /* the details section! */
 #parent {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    /* setting positon to be relative so that we can overlay a div on top of the image. This is the parent for both items */
+    position: relative;
+    margin: auto;
 }
 
 /* background img stuff */
 #background-img-details {
     /* sets the position of the image */
-    position: relative;
+    position: absolute;
 
     /* sets the sizing */
     width: 100%;
     height: auto;
+    
 }
 
 
@@ -217,51 +345,78 @@ h2 {
     /* sizing */
     width: 100%;
     height: auto;
-
-    /* allows the image and divs to overlay */
-    position: absolute;
-
 }
 
 
-/* use vxh for relative sizing compared to viewport */
+
+
+
+/* use vh for relative sizing compared to viewport */
 
 /* main text */
 #main-text {
-    display: flex;
+    /* makes the divs go beside each other */
+    display: inline-block;
 
-    /* this needs to change along with background-img-details's values */
-    position: relative;
+    /* adding background color to match shirt */
+    /* we add it here because then it applies the color only to the part where we want to display stuff. Otherwise, it overlaps with the shirt */
+    background-color: #65c0f5;
 
-    /* making the div a layer on top of the image */
+    /* adding padding to make it look nice. We do 3.5% because the above section has 93% (7% taken off), so we do 7/2 = 3.5 */
+    padding: 3.5%;
+
+    /* makes the text go on top of the image */
     z-index: 1;
 
-    /* adjusting the size of our div */
-    margin: auto;
-
-    /* takes up 80% of screen */
-    width: 80%;
+    
 }
 
-#main-text div {
-    /* background-color: #65c0f5; */
-    /* border-radius: 50px; */
+/* modifying how the sections are displayed */
+#main-text .row {
+    
     /* each div takes 50% of avaliable space */
-    width: 50%;
+    /* width: 50%; */
+    background-color: #e0f7fa;
 }
+
+#section2,  #section3 {
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* Classes to hide/show items */
 .fade-in {
     /* hides the item */
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+
+    /* adds movement for a dynamic effect */
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
 }
 
 .visible {
     /* makes the item visible */
     opacity: 1;
+    transform: translateY(0px);
 }
+
+
+
+
+
+
+
+
 
 
 /* Dynamic website styling */
@@ -359,3 +514,12 @@ h2 {
     }
 }
 
+/* NOTES */
+/* 
+variables that need to be dynamic: 
+
+add some variable here
+and here
+and...
+
+*/
