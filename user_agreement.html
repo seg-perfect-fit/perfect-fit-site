@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License and User Agreement</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Style for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal content/box */
+        .modal-content {
+            background-color: #65c0f5; /* Light blue */
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #FFA500; /* Orange */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Additional styles */
+        .checkbox-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .agreement-text {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #FFA500; /* Dark orange */
+            font-weight: 700; /* Bold */
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + label,
+        .checkbox-container label:hover {
+            color: #FFA500; /* Orange for hover and checked */
+        }
+
+        .checkbox-container label {
+            cursor: pointer;
+        }
+
+        button {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            background-color: #FFA500; /* Blue */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="highlight">License and User Agreement</h2>
+            <p>Please read and accept the terms of the license and user agreement to proceed.</p>
+            <div class="agreement-text">
+                <p>By tapping "Accept," you agree to the following:</p>
+
+                <p><strong>User Data Collection:</strong><br>
+                PerfectFit collects and stores basic data, including body measurements and virtual try-on history, to improve your fitting experience. Your data will be handled in accordance with our Privacy Policy and will not be shared without your consent.</p>
+
+                <p><strong>Limited License:</strong><br>
+                You are granted a personal, non-exclusive, non-transferable, and revocable license to use PerfectFit for virtual fittings only. You agree not to copy, modify, or distribute any part of the app or its contents.</p>
+
+                <p><strong>Accuracy Disclaimer:</strong><br>
+                PerfectFit aims to provide accurate size recommendations. However, results may vary, and users should verify measurements before purchasing items. PerfectFit is not liable for any discrepancies.</p>
+
+                <p><strong>Usage Restrictions:</strong><br>
+                You may not use the app for any unlawful activities or attempt to reverse-engineer, hack, or misuse the service.</p>
+
+                <p><strong>Updates and Modifications:</strong><br>
+                We may periodically update the app or modify this agreement. Continued use of PerfectFit after such changes signifies your acceptance of the revised terms.</p>
+
+                <p><strong>Support and Feedback:</strong><br>
+                For assistance or to share feedback, please reach out to us via the app's support page. By providing feedback, you grant us the right to use it to improve PerfectFit without additional compensation.</p>
+
+                <p>Do you agree to the terms and conditions outlined above?</p>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="agreeCheckbox">
+                <label for="agreeCheckbox">I agree to the terms and conditions</label>
+            </div>
+            <button id="agreeButton" disabled>Agree and Continue</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("modal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Get the checkbox and the agree button
+        var checkbox = document.getElementById("agreeCheckbox");
+        var agreeButton = document.getElementById("agreeButton");
+
+        // When the page loads, open the modal
+        window.onload = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Enable the agree button only when the checkbox is checked
+        checkbox.onchange = function() {
+            agreeButton.disabled = !checkbox.checked;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
