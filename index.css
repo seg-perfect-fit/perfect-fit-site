@@ -409,15 +409,43 @@ h2 {
     background-color: #e0f7fa;
 }
 
-#section2,  #section3 {
+
+
+
+
+
+
+
+
+
+
+/* all the details stuff FOR REALS is here! */
+#section2,  #section3, #section4, #section5, #section6, #section7, #section8 {
     margin-top: 30px;
 }
 
-/* fixing image sizes */
-#section3 img {
-    width: 100%;
-    max-width: 500px;
+.innerSection {
+    text-align: center
 }
+
+.innerSection img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    text-align: center;
+}
+
+/* the inner logos */
+.text-logos {
+    width: auto;
+    height: 70px
+}
+/* the nike logo was just a bit smaller than the other ones, fixing this! */
+#nike-text-logo {
+    height: 120px;
+}
+
 
 
 

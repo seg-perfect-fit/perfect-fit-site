@@ -37,7 +37,7 @@ const dynamicSize = () => {
     //to be fully below, just *100!
     //previously set to 68, 99.9
     // NOTE: the current div is going over the text, so some parts of the shirt's image is cut off if it is less than 100%
-    let detailsMarginTop = (shirt.height / 100) * 99.9;
+    let detailsMarginTop = (shirt.height / 100) * 50;
     details.style.marginTop = `${detailsMarginTop}px`;
 }
 
