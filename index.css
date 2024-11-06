@@ -16,6 +16,27 @@ html {
   background-color: #e0f7fa;
 }
 
+
+footer {
+    /* display: inline; */
+    background-color: #0277bd ;
+    border-top: 5px solid #e0f7fa;
+    padding: 10px;
+    text-align: center;
+}
+
+
+footer a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    transition: color 300ms ease-in-out;
+}
+
+footer a:hover {
+    color: #ffa726 !important;
+}
+
 h1 {
     text-align: center;
 }
@@ -390,6 +411,12 @@ h2 {
 
 #section2,  #section3 {
     margin-top: 30px;
+}
+
+/* fixing image sizes */
+#section3 img {
+    width: 100%;
+    max-width: 500px;
 }
 
 
