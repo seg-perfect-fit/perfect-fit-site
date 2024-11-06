@@ -315,6 +315,17 @@ h2 {
 
 
 
+/* inside the shirt section */
+#inside-shirt {
+    background-color: green;
+    /* width: 80%; */
+    height: 500px;
+    /* margin-bottom: 300px; */
+
+}
+
+
+
 
 
 /* the details section! */
@@ -346,8 +357,6 @@ h2 {
     width: 100%;
     height: auto;
 }
-
-
 
 
 

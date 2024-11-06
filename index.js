@@ -32,13 +32,13 @@ appearDelay(time, "#nav-top")
 const dynamicSize = () => {
     const shirt = document.querySelector("#background-img-details img");
     const details = document.querySelector("#main-text");
+    const insideShirt = document.querySelector("#inside-shirt")
     //if we want to change the position of the div relative to the shirt, we can /100 * a % we want it to be down
     //to be fully below, just *100!
     //previously set to 68, 99.9
     // NOTE: the current div is going over the text, so some parts of the shirt's image is cut off if it is less than 100%
-    let shirtHeight = (shirt.height / 100) * 99.9;
-
-    details.style.marginTop = `${shirtHeight}px`;
+    let detailsMarginTop = (shirt.height / 100) * 99.9;
+    details.style.marginTop = `${detailsMarginTop}px`;
 }
 
 // apply the scaling changes as the screen size changes. Also, run it initially
@@ -46,6 +46,3 @@ window.addEventListener("load", dynamicSize() )
 window.onresize = function() {
     dynamicSize();
 }
-
-
-
