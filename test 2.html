@@ -23,7 +23,7 @@
             justify-content: center;
             font-size: 3em;
             color: white;
-            background-image: url('page_1.png'); /* Add the clothes image */
+            background-image: url('page_1.jpg'); /* Updated to use the new JPG image */
             background-size: 200%; /* Zoom in on the image */
             background-repeat: no-repeat;
             background-position: center;
@@ -39,31 +39,50 @@
         }
         .nav {
             position: fixed;
-            top: 50%;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            width: 100%;
-            justify-content: space-between;
+            align-items: center;
         }
-        .nav a {
-            font-size: 2em;
-            text-decoration: none;
-            color: white;
-            padding: 0 20px;
-            background: rgba(0, 0, 0, 0.7);
+        .scroll-wheel {
+            width: 300px;
         }
     </style>
 </head>
 <body>
-    <h1>This page is a work-in-progress meant to be implemeneted with index.html</h1>
-    <p>The theme here is only for debugging, and will follow index.html's theme in the final product</p>
-    <div class="container">
+    <div class="container" id="scroll-container">
         <div id="page1" class="page hello">Hello</div>
         <div id="page2" class="page world">World</div>
         <div id="page3" class="page goodbye">Goodbye</div>
     </div>
     <div class="nav">
-        <a href="#page1">&#9664;</a>
-        <a href="#page2">&#9654;</a>
+        <input type="range" id="scrollWheel" class="scroll-wheel" min="0" max="2" value="0" step="1">
     </div>
+
+    <script>
+        const container = document.getElementById('scroll-container');
+        const scrollWheel = document.getElementById('scrollWheel');
+        const pages = document.querySelectorAll('.page');
+
+        scrollWheel.addEventListener('input', () => {
+            const index = parseInt(scrollWheel.value);
+            container.scrollTo({
+                left: index * window.innerWidth,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update scroll wheel position on scroll
+        container.addEventListener('scroll', () => {
+            const currentPage = Math.round(container.scrollLeft / window.innerWidth);
+            scrollWheel.value = currentPage;
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+
