@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Closet Scroll</title>
     <style>
+        /* fixed margin issue, now its fullscreen! */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .container {
             display: flex;
             flex-wrap: nowrap;
@@ -13,6 +21,7 @@
             width: 100vw;
             height: 100vh;
         }
+
         .page {
             flex: none;
             width: 100vw;
@@ -23,20 +32,29 @@
             justify-content: center;
             font-size: 3em;
             color: white;
-            background-image: url('page_1.jpg'); /* Updated to use the new JPG image */
-            background-size: 200%; /* Zoom in on the image */
+            background-image: url('page_1.jpg');
+            /* Updated to use the new JPG image */
+            background-size: 200%;
+            /* Zoom in on the image */
             background-repeat: no-repeat;
             background-position: center;
         }
+
         .hello {
-            background-color: rgba(255, 165, 0, 0.5); /* Transparent orange overlay */
+            background-color: rgba(255, 165, 0, 0.5);
+            /* Transparent orange overlay */
         }
+
         .world {
-            background-color: rgba(0, 128, 0, 0.5); /* Transparent green overlay */
+            background-color: rgba(0, 128, 0, 0.5);
+            /* Transparent green overlay */
         }
+
         .goodbye {
-            background-color: rgba(0, 0, 255, 0.5); /* Transparent blue overlay */
+            background-color: rgba(0, 0, 255, 0.5);
+            /* Transparent blue overlay */
         }
+
         .nav {
             position: fixed;
             top: 10px;
@@ -45,11 +63,13 @@
             display: flex;
             align-items: center;
         }
+
         .scroll-wheel {
             width: 300px;
         }
     </style>
 </head>
+
 <body>
     <div class="container" id="scroll-container">
         <div id="page1" class="page hello">Hello</div>
@@ -80,9 +100,5 @@
         });
     </script>
 </body>
+
 </html>
-
-
-
-
-
