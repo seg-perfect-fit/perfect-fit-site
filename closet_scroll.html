@@ -32,7 +32,8 @@
             justify-content: center;
             font-size: 3em;
             color: white;
-            background-image: url('page_1.jpg');
+            /* the default just in case */
+            background-image: url('images/pages/page_1.jpg');
             /* Updated to use the new JPG image */
             background-size: 200%;
             /* Zoom in on the image */
@@ -67,14 +68,26 @@
         .scroll-wheel {
             width: 300px;
         }
+
+        /* different images for different pages */
+        #page1 {
+            background-image: url('images/pages/page_1.jpg');
+        }
+        #page2 {
+            background-image: url('images/pages/page_2.webp');
+        }
+        #page3 {
+            background-image: url('images/pages/page_3.avif');
+        }
+
     </style>
 </head>
 
 <body>
     <div class="container" id="scroll-container">
-        <div id="page1" class="page hello">Hello</div>
-        <div id="page2" class="page world">World</div>
-        <div id="page3" class="page goodbye">Goodbye</div>
+        <div id="page1" class="page hello">Brand X Large</div>
+        <div id="page2" class="page world">Brand Y Small</div>
+        <div id="page3" class="page goodbye">Brand Z Medium</div>
     </div>
     <div class="nav">
         <input type="range" id="scrollWheel" class="scroll-wheel" min="0" max="2" value="0" step="1">
