@@ -98,7 +98,7 @@ h2 {
 }
 
 #home-page-details {
-    background: linear-gradient(rgba(91, 164, 252, 0.5), #e0f7fa);
+    background: linear-gradient(rgba(91, 163, 252, 0.597), #e0f7fa);
 }
 
 
@@ -425,26 +425,50 @@ h2 {
 }
 
 .innerSection {
-    text-align: center
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+/* centering the images */
+.innerSection img {
+    width: auto;
+    height: auto;
+    max-width: 400px;
+    /* max-height: 300px; */
+    text-align: center;
+
+    /* display: block; */
+    margin: auto
 }
 
-.innerSection img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    max-height: 300px;
+/* centering the imported gifs and turning off the menu showing up for some gifs */
+.imported-gif {
+    pointer-events: none;
+    /* border: 10px solid red; */
+    border-radius: 200px;
     text-align: center;
+    margin: auto;
 }
 
 /* the inner logos */
 .text-logos {
     width: auto;
-    height: 70px
+    height: 70px;
 }
 /* the nike logo was just a bit smaller than the other ones, fixing this! */
 #nike-text-logo {
     height: 120px;
 }
+
+/* changing the apperance of the closet_scroll.html iframe */
+#closet-scroll {
+    /* border: 10px solid #ff7043; */
+    border-radius: 200px;
+    overflow: hidden;
+    /* min-width: 400px; */
+}
+
+
 
 
 
