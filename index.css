@@ -438,7 +438,7 @@ h2 {
     text-align: center;
 
     /* display: block; */
-    margin: auto
+    margin: auto;
 }
 
 /* centering the imported gifs and turning off the menu showing up for some gifs */
@@ -466,6 +466,11 @@ h2 {
     border-radius: 200px;
     overflow: hidden;
     /* min-width: 400px; */
+}
+
+/* changing the apperance of the Perfect Fit logo */
+#perfect-fit-logo {
+    border-radius: 50px;
 }
 
 
