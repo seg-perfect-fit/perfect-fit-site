@@ -57,6 +57,7 @@ footer {
 }
 
 
+/* footer stuff */
 footer a {
     color: white;
     text-decoration: none;
@@ -66,4 +67,22 @@ footer a {
 
 footer a:hover {
     color: #ffa726 !important;
+}
+
+/* transition stuff */
+/* Classes to hide/show items */
+.fade-in {
+    /* hides the item */
+    opacity: 0;
+
+    /* adds movement for a dynamic effect */
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+}
+
+.visible {
+    /* makes the item visible */
+    opacity: 1;
+    transform: translateY(0px);
 }

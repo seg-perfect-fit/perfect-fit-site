@@ -23,10 +23,12 @@ let time = 300
 appearDelay(time, "#nav-top")
     .then(() => appearDelay(time, ".inside-left"))
     .then(() => appearDelay(time, ".inside-right"))
-    .then(() => appearDelay(500, ".inside-right img"))  //avatar picture, 500delay
+    .then(() => appearDelay(time, ".inside-right img"))  //avatar picture, 500delay
     .then(() => appearDelay(500, "#slogan-inner", "slogan-you-visible"))   //changing the colour of "you", 500delay
     .then(() => appearDelay(time, "#text-interactive")) //member sign-in
+    .then(() => appearDelay(time, "#app-stores"))
     .then(() => appearDelay(1000, "#main-text"))    //the main text, 1000delay
+
 
 //properly scale the details div with the shirt image
 const dynamicSize = () => {
