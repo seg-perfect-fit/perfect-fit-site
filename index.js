@@ -20,6 +20,7 @@ const appearDelay = async (waitTime, item, addedClass) => {
 
 // running the fade-in code
 let time = 300
+// index.html
 appearDelay(time, "#nav-top")
     .then(() => appearDelay(time, ".inside-left"))
     .then(() => appearDelay(time, ".inside-right"))
@@ -28,6 +29,46 @@ appearDelay(time, "#nav-top")
     .then(() => appearDelay(time, "#text-interactive")) //member sign-in
     .then(() => appearDelay(time, "#app-stores"))
     .then(() => appearDelay(1000, "#main-text"))    //the main text, 1000delay
+
+// about_us.html
+appearDelay(time, "#nav-top")
+    .then(() => appearDelay(time, ".header"))
+    .then(() => appearDelay(time, ".about_us-btn"))
+
+//contact.html
+appearDelay(time, "#nav-top")
+    .then(() => appearDelay(time, ".title"))
+    .then(() => appearDelay(time, ".container"))
+
+//FAQs.html
+appearDelay(time, "#nav-top")
+    .then(() => appearDelay(time, ".title"))
+    .then(() => appearDelay(200, "#details-1"))
+    .then(() => appearDelay(200, "#details-2"))
+    .then(() => appearDelay(200, "#details-3"))
+    .then(() => appearDelay(200, "#details-4"))
+    .then(() => appearDelay(200, "#details-5"))
+    .then(() => appearDelay(200, "#details-6"))
+    .then(() => appearDelay(200, "#details-7"))
+
+//sign_in.html
+appearDelay(time, "#nav-top")
+    .then(() => appearDelay(time, ".title"))
+    .then(() => appearDelay(200, ".username"))
+    .then(() => appearDelay(200, ".email"))
+    .then(() => appearDelay(200, ".password"))
+    .then(() => appearDelay(200, ".password-confirm"))
+    .then(() => appearDelay(200, ".sign-up"))
+    .then(() => appearDelay(500, ".link"))
+
+//user_agreement.html
+appearDelay(time, "#nav-top")
+    .then(() => appearDelay(time, ".title"))
+    .then(() => appearDelay(time, ".text-1"))
+    .then(() => appearDelay(700, ".agreement-text"))
+    .then(() => appearDelay(time, ".checkbox-container"))
+    .then(() => appearDelay(time, "#agreeButton"))
+    
 
 
 //properly scale the details div with the shirt image
