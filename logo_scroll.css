@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #e0f7fa; */
+}
+
+@keyframes slide1 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide2 {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.logos {
+    overflow: hidden;
+    /* top and bottom padding */
+    padding: 20px 0;
+    white-space: nowrap;
+}
+
+.logos-slide1 {
+    display: inline-block;
+    animation: 10s slide1 infinite linear
+}
+
+.logos-slide2 {
+    display: inline-block;
+    animation: 10s slide2 infinite linear
+}
+
+.logos-slide1 img, .logos-slide2 img {
+    height: 100px;
+    /* adding space between left/right of imgs */
+    margin: 0 40px;
+}

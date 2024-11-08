@@ -441,6 +441,24 @@ h2 {
     margin: auto;
 }
 
+/* the scrolling carosuel background thing */
+#section2-imgs {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    /* margin: 50%; */
+    /* border-radius: 200px; */
+    overflow: hidden;
+    justify-content: center;
+
+}
+
+#section2-imgs iframe {
+    width: 100%;
+    width: 800px;
+    height: 450px;
+}
+
 /* centering the imported gifs and turning off the menu showing up for some gifs */
 .imported-gif {
     pointer-events: none;
@@ -453,11 +471,11 @@ h2 {
 /* the inner logos */
 .text-logos {
     width: auto;
-    height: 70px;
+    height: 20px;
 }
 /* the nike logo was just a bit smaller than the other ones, fixing this! */
 #nike-text-logo {
-    height: 120px;
+    height: 40px;
 }
 
 /* changing the apperance of the closet_scroll.html iframe */
