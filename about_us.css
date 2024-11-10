@@ -11,57 +11,16 @@ body {
     background: linear-gradient(#e0f7fa, rgba(91, 164, 252, 0.5));
 }
 
-.header {
+/*
+.header.fade.in{
     min-height: 100vh;
     width: 100%;
-    /* background-image: linear-gradient(#e0f7fa, rgba(91, 164, 252, 0.5)), url(images/background_blue.png); */
     background: linear-gradient(#e0f7fa, rgba(91, 164, 252, 0.5));
     background-position: center;
     background-size: cover;
     position: relative;
-    /* padding-top: 10px; */
-}
-
-/* Old navbar styles */
-/* nav{
-    display: flex;
-    padding: 1% 6%;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-nav img{
-    width: 130px;
-    vertical-align: middle;
-    margin-top: -30px;
-    margin-left: -30px;
-}
-.nav-links{
-    flex: 1;
-    text-align: right;
-}
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
-}
-.nav-links ul li a{
-    color: #000000;
-    text-decoration: none;
-    font-size: 20px;
-}
-.nav-links ul li::after{
-    content:"";
-    width: 0%;
-    height: 2px;
-    background: #ffa726;
-    display: block;
-    margin: auto;
-    transition: 0.7s;
-}
-.nav-links ul li:hover:after{
-    width: 100%;
-} */
+ }
+    */
 
 .text-box {
     position: relative;
@@ -141,5 +100,62 @@ p{
 .hiring_columns:hover{
     box-shadow: 0 0 20px 0px #000000;
 }
+
+@media (max-width: 1000px){
+    .row{
+        flex-direction: column;
+    }
+}
+
+.team-members{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.team-members-column{
+    flex-basis: 20%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.team-members-column img{
+    width: 100%;
+}  
+
+.layer{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.8s;
+}
+
+.layer:hover{
+    background: rgba(40, 36, 97, 0.8);
+}
+
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.layer:hover h3{
+    bottom: 49%;
+    opacity: 1;
+}
+
 
 
